@@ -1,17 +1,8 @@
 package ch03.PC.v2;
 
-/**
- * The type Pc.
- */
 public class PC
 {
-
-  /**
-   * The entry point of application.
-   *
-   * @param args the input arguments
-   */
-  public static void main(String[] args)
+   public static void main(String[] args)
    {
       Shared s = new Shared();
       new Producer(s).start();
@@ -19,20 +10,13 @@ public class PC
    }
 }
 
-/**
- * The type Shared.
- */
 class Shared
 {
    private char c;
+   //volatile关键字是否能保证线程安全 任何被volatile修饰的变量,都不拷贝副本到工作内存,任何修改都及时写在主存
    private volatile boolean writeable = true;
 
-  /**
-   * Sets shared char.
-   *
-   * @param c the c
-   */
-  synchronized void setSharedChar(char c)
+   synchronized void setSharedChar(char c)
    {
       while (!writeable)
          try
@@ -47,12 +31,7 @@ class Shared
       notify();
    }
 
-  /**
-   * Gets shared char.
-   *
-   * @return the shared char
-   */
-  synchronized char getSharedChar()
+   synchronized char getSharedChar()
    {
       while (writeable)
          try
@@ -68,19 +47,11 @@ class Shared
    }
 }
 
-/**
- * The type Producer.
- */
 class Producer extends Thread
 {
    private final Shared s;
 
-  /**
-   * Instantiates a new Producer.
-   *
-   * @param s the s
-   */
-  Producer(Shared s)
+   Producer(Shared s)
    {
       this.s = s;
    }
@@ -98,20 +69,11 @@ class Producer extends Thread
       }
    }
 }
-
-/**
- * The type Consumer.
- */
 class Consumer extends Thread
 {
    private final Shared s;
 
-  /**
-   * Instantiates a new Consumer.
-   *
-   * @param s the s
-   */
-  Consumer(Shared s)
+   Consumer(Shared s)
    {
       this.s = s;
    }
