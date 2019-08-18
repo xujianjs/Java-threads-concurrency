@@ -6,6 +6,11 @@ import java.util.concurrent.Semaphore;
 
 /**
  * The type Semaphore demo.
+ *
+ *
+ * 信号量维护了 组许可证（permit），以约束访问被限制资源的线程数。
+ * 当没有可用的许可证时，线程的获取尝试会一直阻塞，直到其他的线程释放一个许可证
+ *
  */
 public class SemaphoreDemo
 {
