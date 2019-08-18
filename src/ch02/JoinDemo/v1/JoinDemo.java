@@ -1,11 +1,11 @@
-package ch01.ThreadDemo.v3;
+package ch02.JoinDemo.v1;
 
 import java.math.BigDecimal;
 
 /**
- * The type Thread demo.
+ * The type Join demo.
  */
-public class ThreadDemo
+public class JoinDemo
 {
    // constant used in pi computation
 
@@ -26,14 +26,15 @@ public class ThreadDemo
    {
       Runnable r = () -> 
                    {
-                      result = computePi(50000);
+                      synchronized(FOUR)
+                      {
+                         result = computePi(50000);
+                      }
                    };
       Thread t = new Thread(r);
       t.start();
       try
       {
-         //Waits for this thread to die
-         //一直等待该线程 知道线程死亡
          t.join();
       }
       catch (InterruptedException ie)
@@ -41,7 +42,10 @@ public class ThreadDemo
          // Should never arrive here because interrupt() is never
          // called.
       }
-      System.out.println(result);
+      synchronized(FOUR)
+      {
+         System.out.println(result);
+      }
    }
 
    /*

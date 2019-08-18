@@ -54,6 +54,9 @@ public class IntSleep {
 
   }
 
+  /**
+   * Test 1.
+   */
   @Test
   void test1() {
     String msg = Thread.currentThread().getName() + ":lambda λ的形式定义runnable";
@@ -72,6 +75,9 @@ public class IntSleep {
 
   }
 
+  /**
+   * Test 2.
+   */
   @Test
   void test2() {
     Thread t1 = new Thread("线程1");
@@ -82,6 +88,9 @@ public class IntSleep {
 
   }
 
+  /**
+   * Test 3.
+   */
   @Test
   void test3() {
     Thread thread = new Thread();
@@ -92,6 +101,9 @@ public class IntSleep {
   }
 
 
+  /**
+   * Test 4.
+   */
   @Test
   void test4() {
     Thread t1 = new Thread();
@@ -109,6 +121,9 @@ public class IntSleep {
   }
 
 
+  /**
+   * Test 5.
+   */
   @Test
   void test5() {
     Runtime runtime = Runtime.getRuntime();
@@ -116,6 +131,9 @@ public class IntSleep {
     System.out.printf("本宝宝的机器核心数：%d",i);//本宝宝的机器核心数：12
   }
 
+  /**
+   * Test 6.
+   */
   @Test
   void test6() {
     Thread t = new Thread();
@@ -126,6 +144,9 @@ public class IntSleep {
     System.out.println(t.getPriority());
   }
 
+  /**
+   * Test 7.
+   */
   @Test
   void test7() {
     Thread t = new Thread();

@@ -1,10 +1,12 @@
-package ch01.ThreadDemo.v4;
+package ch04.ThreadLocalDemo;
 
 /**
- * The type Thread demo.
+ * The type Thread local demo.
  */
-public class ThreadDemo
+public class ThreadLocalDemo
 {
+   private static volatile ThreadLocal<String> userID =
+      new ThreadLocal<String>();
 
   /**
    * The entry point of application.
@@ -19,24 +21,18 @@ public class ThreadDemo
                       public void run()
                       {
                          String name = Thread.currentThread().getName();
-                         int count = 0;
-                         while (!Thread.interrupted())
-                            System.out.println(name + ": " + count++);
+                         if (name.equals("A"))
+                            userID.set("foxtrot");
+                         else
+                            userID.set("charlie");
+                         System.out.println(name + " " + userID.get());
                       }
                    };
       Thread thdA = new Thread(r);
+      thdA.setName("A");
       Thread thdB = new Thread(r);
+      thdB.setName("B");
       thdA.start();
       thdB.start();
-      try
-      {
-         //用线程自身提供的睡眠功能 代替性能差的“忙循环”
-         Thread.sleep(2000);
-      }
-      catch (InterruptedException ie)
-      {
-      }
-      thdA.interrupt();
-      thdB.interrupt();
    }
 }

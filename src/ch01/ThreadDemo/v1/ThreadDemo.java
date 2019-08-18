@@ -6,12 +6,12 @@ package ch01.ThreadDemo.v1;
 public class ThreadDemo
 {
 
-   /**
-    * The entry point of application.
-    *
-    * @param args the input arguments
-    */
-   public static void main(String[] args)
+  /**
+   * The entry point of application.
+   *
+   * @param args the input arguments
+   */
+  public static void main(String[] args)
    {
       boolean isDaemon = args.length != 0;
       Runnable r = new Runnable()

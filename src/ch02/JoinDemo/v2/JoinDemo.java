@@ -1,11 +1,11 @@
-package ch01.ThreadDemo.v3;
+package ch02.JoinDemo.v2;
 
 import java.math.BigDecimal;
 
 /**
- * The type Thread demo.
+ * The type Join demo.
  */
-public class ThreadDemo
+public class JoinDemo
 {
    // constant used in pi computation
 
@@ -15,7 +15,7 @@ public class ThreadDemo
 
    private static final int roundingMode = BigDecimal.ROUND_HALF_EVEN;
 
-   private static BigDecimal result;
+   private static volatile BigDecimal result;
 
   /**
    * The entry point of application.
@@ -32,8 +32,6 @@ public class ThreadDemo
       t.start();
       try
       {
-         //Waits for this thread to die
-         //一直等待该线程 知道线程死亡
          t.join();
       }
       catch (InterruptedException ie)

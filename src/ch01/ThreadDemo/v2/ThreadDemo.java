@@ -6,12 +6,12 @@ package ch01.ThreadDemo.v2;
 public class ThreadDemo
 {
 
-   /**
-    * The entry point of application.
-    *
-    * @param args the input arguments
-    */
-   public static void main(String[] args)
+  /**
+   * The entry point of application.
+   *
+   * @param args the input arguments
+   */
+  public static void main(String[] args)
    {
       Runnable r = new Runnable()
                    {
